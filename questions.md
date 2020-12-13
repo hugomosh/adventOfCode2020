@@ -1,9 +1,11 @@
-# Questions I had while doint
+# Questions I had while doing this
 
 - [x] What is a good way to count `chars` in a `string`? [stack](https://stackoverflow.com/a/881111/848755)
   - [x] `match` regex? is
   - A: The idea of using split was not terrible. `str.split(c).length - 1`
 - [x] How to make a group in regex? `': '` [#a1](#a)
+- [ ] How to replace char a position x in str?
+- [ ] Best way to deal with indexes. Best practices? i++, i
 
 ## a1
 
