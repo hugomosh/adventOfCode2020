@@ -1,8 +1,8 @@
 # Hugo's Advent of Code 2020
 
-Estoy tratando de pasar un rato divertido resolviendo los problemas de Advent Of Code. No pienso generar codigo bonito ni optimo, solo se trata de obtener las estrellas, al menos al princio.
+Estoy tratando de pasar un rato divertido resolviendo los problemas de Advent Of Code. No pienso generar código bonito ni optimo, solo se trata de obtener las estrellas, al menos al principio.
 
-Creo que estos ejercicos son una gran forma de aprender y manterse afilado. Muchos lo usan para practicar un nuevo lenguaje de progrmacion. Y otros para probar obtener soluciones de la menor complejidad. Sin duda es una gran forma de entrenar para novatos, pros y los que estamos entremedio 😅.
+Creo que estos ejercicios son una gran forma de aprender y mantenerse afilado. Muchos lo usan para practicar un nuevo lenguaje de programación. Y otros para probar obtener soluciones de la menor complejidad. Sin duda es una gran forma de entrenar para novatos, pros y los que estamos entremedio 😅.
 
 ---
 
