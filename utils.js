@@ -11,12 +11,17 @@ function readFromFile(fileName) {
 }
 
 function readLinesFromFile(fileName) {
-  return readFromFile(fileName).split(/\r?\n/);
+  return splitLines(readFromFile(fileName));
+}
+
+function splitLines(txt) {
+  return txt.split(/\r?\n/);
 }
 
 const utils = {
   readFromFile,
   readLinesFromFile,
+  splitLines,
 };
 
 module.exports = utils;

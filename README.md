@@ -16,7 +16,7 @@ I do use a JS Cheat Sheet. Some of them so far:
 
 ## Setup
 
-This is my fist doing this so I am going to create a folder with the inputs (hope that's ok) and files like `dayXX.js` for each day with 3 func each.
+This is my first doing this so I am going to create a folder with the inputs (hope that's ok) and files like `dayXX.js` for each day with 3 func each.
 
 - [remy/nodemon: Monitor for any changes in your node.js application and automatically restart the server - perfect for development](https://github.com/remy/nodemon)
 
