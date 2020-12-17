@@ -46,3 +46,29 @@ document.body.innerText.split("\n\n").filter((passport) => {
 Eso si, ya sabia el resultado **172** y yo tenia **174**. Asi que no iba a subir hasta que lo corrigiera. Aun con el resultado es difícil saber que esta pasando mal. Lo feo es que esos 3 o 2 que no estaba cachando del height estaban muy oculto los canijos.
 
 El dia cuatro si estuvo feo, el código lo refleja. El numero de `console.log`es proporcional al struggle que pase. Pero bueno pues hay que estar sharp y siempre se aprender de estos errores. Y de soluciones de otros colegas.
+
+## Day 05
+
+Este dia me gusto. Tenia toda la facha de ser binario el problema. Entonces con calma se podia ver que nos estaban dando el código binario de la colum `BFFFBBB -> 1000111` y `LRL -> 010`. Y ahora me doy cuenta que multiplicar por 8 es desplazar (desfasar\*?) la primera parte tres lugares y ya nos queda un sistema para numerar todos los boletos.
+
+Para este problema pase mas tiempo consultando como eran las operaciones con bits que resolviéndolo.
+
+[Practical bit manipulation in JavaScript | by Joshua Parker | Medium](https://medium.com/@parkerjmed/practical-bit-manipulation-in-javascript-bfd9ef6d6c30)
+
+Era vital recordar que `1<<x` nos da un 1 con x ceros. Entonces fui sumando el carácter en el espacio `i` si es `B` o `R` entoces sumar.
+
+El mapa de lugares es un bonito problema. Estaría interesante ver como queda la numeración el el avion do 2^10 -1 lugares. No considere los casos limite pero creo que en este se perdona. Vamos a buscar el mapa. mmm No lo encontré voy a dibujar el mapa para 4 filas y 2 columnas
+
+| Fila | L   | R   |
+| ---- | --- | --- |
+| 0    | 001 | 000 |
+| 1    | 011 | 010 |
+| 2    | 101 | 100 |
+| 3    | 111 | 110 |
+
+Y pues ya con 4 filas y 4 columnas es fácil ver el patron. Pense seria mas como una z, pero no se que estaba pensando :/
+
+| Fila | L    |      |      | R    |
+| ---- | ---- | ---- | ---- | ---- |
+| 0    | 0011 | 0010 | 0001 | 0000 |
+| 1    | 0111 | 0110 | 0101 | 0010 |
