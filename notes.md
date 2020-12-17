@@ -72,3 +72,10 @@ Y pues ya con 4 filas y 4 columnas es fácil ver el patron. Pense seria mas como
 | ---- | ---- | ---- | ---- | ---- |
 | 0    | 0011 | 0010 | 0001 | 0000 |
 | 1    | 0111 | 0110 | 0101 | 0010 |
+
+## Day 06
+
+Otro sencillo pero esta vez si me quedo bastante feo. Me tropecé mucho con mi test, los datos se parecían al del dia 4 en el sentido de que son grupo de lineas separados por dos new lines `\n\n` asi que copie las lineas del dia 4 pero olvide el test : / jaja ahi se me fueron unos minutos.
+
+Me gustaría corregir este código y buscar una solución mas eficiente pero bueno estamos resolviendo sin importar como, mientras corra en mi compu en tiempo razonable.
+Aquí busque como hacer [Object.entries() - JavaScript | MDN](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Object/entries) para el `for (const [k, v] of Object.entries(answers)) {` aunque en realidad solo ocupaba el values.
