@@ -78,4 +78,48 @@ Y pues ya con 4 filas y 4 columnas es fácil ver el patron. Pense seria mas como
 Otro sencillo pero esta vez si me quedo bastante feo. Me tropecé mucho con mi test, los datos se parecían al del dia 4 en el sentido de que son grupo de lineas separados por dos new lines `\n\n` asi que copie las lineas del dia 4 pero olvide el test : / jaja ahi se me fueron unos minutos.
 
 Me gustaría corregir este código y buscar una solución mas eficiente pero bueno estamos resolviendo sin importar como, mientras corra en mi compu en tiempo razonable.
-Aquí busque como hacer [Object.entries() - JavaScript | MDN](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Object/entries) para el `for (const [k, v] of Object.entries(answers)) {` aunque en realidad solo ocupaba el values.
+Aquí busque como hacer [Object.entries() - JavaScript | MDN](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Object/entries) para el `for (const [k, v] of Object.entries(answers)) {` aunque en realidad solo ocupaba el values. _Jaja y digo fea implementación como si alguna otra haya sido bonita_ 😅
+
+Wow, vean esta chulada en python [adventofcode/solutions.py at master · fuglede/adventofcode](https://github.com/fuglede/adventofcode/blob/master/2020/day06/solutions.py) _la descubrí viendo random a los leaderboards_
+
+```py
+with open('input') as f:
+    data = f.read().strip()
+
+groups = data.split('\n\n')
+
+# Part one
+print(sum(len(set(g.replace('\n', ''))) for g in groups))
+
+# Part two
+print(sum(len(set.intersection(*map(set, g.split('\n')))) for g in groups))
+```
+
+## Day 07
+
+light red bags contain 1 bright white bag, 2 muted yellow bags.
+dark orange bags contain 3 bright white bags, 4 muted yellow bags.
+bright white bags contain 1 shiny gold bag.
+muted yellow bags contain 2 shiny gold bags, 9 faded blue bags.
+shiny gold bags contain 1 dark olive bag, 2 vibrant plum bags.
+dark olive bags contain 3 faded blue bags, 4 dotted black bags.
+vibrant plum bags contain 5 faded blue bags, 6 dotted black bags.
+faded blue bags contain no other bags.
+dotted black bags contain no other bags.
+
+Este lo intente hacer el jueves 17 en la noche y creo que resolví el total de bolsas que tiene una `shiny gold` bag; en vez de cuantas bolsas externas contiene alguna `shiny gold` recursivamente :s que bruto y ahi me gaste mi stamina. Me gusta este problema, el punto es encontrar la estructura del grafo adecuado y versátil suficiente para el p2 aunque puede que ni se ocupe. Lo voy a intentar manhana ya con ojos frescos. Y ver la manera de facilitarme la vida con estructuras sencillas.
+
+La idea es encontrar todas las reglas en que en algún punto encuentras una `shiny gold`. Esto puede ser desde abajo hacia arriba o por cada regla ir averiguando si en algun punto toca a la bolsa `shiny gold` sin que repitas nodos para evitar ciclos.
+
+Me doy cuenta de lo oxidado que estoy con grafos y arboles. Lo divertido que son estos y fáciles para resolver problemas y dar respuesta a este tipo de quieres, quizá manhana ya que lo resuelva como sea le doy una repasada a estos en js. También me dan ganas de hacer el que sigue en `python` por lo conveniente y han sido los mas concretas y claras soluciones que he vista haya afuera. Si no `rust` pero vayamos viendo. Le tengo algo de fe a js.
+
+---
+
+_Dia (real) siguiente_ Pues ya , en tan solo unos minutos (10) ya pude salir con el plan de una solución bastante simple y obvia. El chiste es guardar para cada nodo los padres e hijos. Puede ser un `Set` para p1 pero creo vale la pena un `Map` para guardar los pesos del grafo por si las moscas en el p2. En estos 10 minutos también vi que la opción
+
+[How JavaScript Maps Can Make Your Code Faster | by Bret Cameron | Medium](https://medium.com/@bretcameron/how-javascript-maps-can-make-your-code-faster-90f56bf61d9d)
+
+- [ ] Me pregunto que podrá ayudar a la comunidad hispano hablante de programación mas. Mas articulos en espanhol? Preguntare en foros.
+
+Ya con los mapas las soluciones quedaron mas fáciles. al final si era contar el numero de bolsas y este esta triqui. Hay que ser muy cuidadoso en como contar. Me fui por varios callejones incorrectos.
+El chiste en este caso para mi fue pensar. Para cada bolsa dentro debo de contar el cuantas bolsas tiene el hijo para multiplicar eso por el numero de bolsas que tengo y añadir finalmente esas bolsas contenedoras. Osea `peso*(1+cuentaDeBolsasDelHijo)`.

@@ -41,11 +41,11 @@ function testDemo() {
   console.assert(actual === expected, `Expected: ${expected}==${actual}.`);
 }
 
-function testP2() {
+function testDemo2() {
   const actual = day00P2(utils.splitLines(test));
   const expected = 123123123;
   console.assert(actual === expected, `Expected: ${expected}==${actual}.`);
 }
 
-//testP1();
-//testP2();
+//testDemo();
+//testDemo2();
