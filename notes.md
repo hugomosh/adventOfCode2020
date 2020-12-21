@@ -123,3 +123,9 @@ _Dia (real) siguiente_ Pues ya , en tan solo unos minutos (10) ya pude salir con
 
 Ya con los mapas las soluciones quedaron mas fáciles. al final si era contar el numero de bolsas y este esta triqui. Hay que ser muy cuidadoso en como contar. Me fui por varios callejones incorrectos.
 El chiste en este caso para mi fue pensar. Para cada bolsa dentro debo de contar el cuantas bolsas tiene el hijo para multiplicar eso por el numero de bolsas que tengo y añadir finalmente esas bolsas contenedoras. Osea `peso*(1+cuentaDeBolsasDelHijo)`.
+
+---
+
+Nota: Hago notas personales para sentir que convivo, y ojala después sirvan para recordar. Es bastante penoso saber que alguien mas puede leer esto pero si eres curioso dejame saber que estuviste aqui. Me daría gusto y algo de pena. Mucho gusto si te ayuda de alguna u otra manera.
+
+## Day 08
