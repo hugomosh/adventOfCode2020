@@ -128,4 +128,20 @@ El chiste en este caso para mi fue pensar. Para cada bolsa dentro debo de contar
 
 Nota: Hago notas personales para sentir que convivo, y ojala después sirvan para recordar. Es bastante penoso saber que alguien mas puede leer esto pero si eres curioso dejame saber que estuviste aqui. Me daría gusto y algo de pena. Mucho gusto si te ayuda de alguna u otra manera.
 
+> AL parecer no tome notas para 8 y 0. Me lo eche después del 8 y para el 10 tome unos dias entonces estoy aun mas retrasado. Creo que intente hacer el 18 para ver si podia competir para un dia pero pues no. Mejor voy a ir despacio este año y ya el que sigo lo hago al ritmo, PD.
+
 ## Day 08
+
+Un ensamblador. Toda la carrera de computación esta en estos ejercicios.
+
+## Day 09
+
+Este era de códigos.
+
+## Day 10
+
+Vine vi vencí.
+
+Que bonito problema. Me gusto mucho. Creo que este pasa de un orden bastante alto, creo 2^n a uno bajo. MM tendría que hacer el análisis. La solución naive no lo contaría eficiente pero aun asi sirve para resolver el problema.
+
+Me tarde una hora y media pero estuvo divertido, quizá con mas práctica lo pueda hacer en unos minutos. Vi la solución del 2 pero quise evitarla hasta que vi que la magnitud era muuuy grande.

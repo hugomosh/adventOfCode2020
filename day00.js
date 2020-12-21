@@ -31,7 +31,7 @@ console.log({ sol });
 
 const test = `cxxx`;
 
-function testDemo() {
+function testDemoP1() {
   const actual = day00P1(utils.splitLines(test));
   const expected = 123123123;
 
@@ -41,7 +41,7 @@ function testDemo() {
   );
 }
 
-function testDemo2() {
+function testDemoP2() {
   const actual = day00P2(utils.splitLines(test));
   const expected = 123123123;
   console.assert(
@@ -50,5 +50,5 @@ function testDemo2() {
   );
 }
 
-//testDemo();
-//testDemo2();
+//testDemoP1();
+//testDemoP2();
