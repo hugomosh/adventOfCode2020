@@ -145,3 +145,9 @@ Vine vi vencí.
 Que bonito problema. Me gusto mucho. Creo que este pasa de un orden bastante alto, creo 2^n a uno bajo. MM tendría que hacer el análisis. La solución naive no lo contaría eficiente pero aun asi sirve para resolver el problema.
 
 Me tarde una hora y media pero estuvo divertido, quizá con mas práctica lo pueda hacer en unos minutos. Vi la solución del 2 pero quise evitarla hasta que vi que la magnitud era muuuy grande.
+
+## Day 11
+
+Un poco de problema con los indices y las reglas del p2 pero en menos de una hora. Creo que tengo un gran camino para poder competir. Me parece que el peor top 100 lo hace en uno 15 minutos.
+
+Creo que si tengo ciertas funciones bien practicadas echas podría competir. Pero me falta practica y definitivamente python seria más ergonómico y ya con practica pues me sería más fácil y fluido.
