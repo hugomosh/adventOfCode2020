@@ -151,3 +151,9 @@ Me tarde una hora y media pero estuvo divertido, quizá con mas práctica lo pue
 Un poco de problema con los indices y las reglas del p2 pero en menos de una hora. Creo que tengo un gran camino para poder competir. Me parece que el peor top 100 lo hace en uno 15 minutos.
 
 Creo que si tengo ciertas funciones bien practicadas echas podría competir. Pero me falta practica y definitivamente python seria más ergonómico y ya con practica pues me sería más fácil y fluido.
+
+## Day 12
+
+No estaba tan difícil, lo importante en este fue encontrar la manera adecuada de guardar la posicion. Empeze con `"horizontal"` y `direccion` +1 o -1 pero no me gusto nada. Luego con angulos. Que enrealidad es la suma de vectores unitarios. `0` es `N` y asi. Bien pude usar la misma notacion. Pero lo importante era en la rotacion. 
+
+El `0` se convertia en `90` con R90. Voy a ver otras soluciones para prender maneras buenas de guardar estos angulos
