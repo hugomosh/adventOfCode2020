@@ -154,6 +154,12 @@ Creo que si tengo ciertas funciones bien practicadas echas podría competir. Per
 
 ## Day 12
 
-No estaba tan difícil, lo importante en este fue encontrar la manera adecuada de guardar la posicion. Empeze con `"horizontal"` y `direccion` +1 o -1 pero no me gusto nada. Luego con angulos. Que enrealidad es la suma de vectores unitarios. `0` es `N` y asi. Bien pude usar la misma notacion. Pero lo importante era en la rotacion. 
+No estaba tan difícil, lo importante en este fue encontrar la manera adecuada de guardar la posicion. Empeze con `"horizontal"` y `direccion` +1 o -1 pero no me gusto nada. Luego con angulos. Que enrealidad es la suma de vectores unitarios. `0` es `N` y asi. Bien pude usar la misma notacion. Pero lo importante era en la rotacion.
 
 El `0` se convertia en `90` con R90. Voy a ver otras soluciones para prender maneras buenas de guardar estos angulos
+
+## Day 14
+
+With Ruben,
+
+[64 bit - bitwise AND in Javascript with a 64 bit integer - Stack Overflow](https://stackoverflow.com/questions/2983206/bitwise-and-in-javascript-with-a-64-bit-integer)
