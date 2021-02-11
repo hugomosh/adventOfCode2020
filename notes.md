@@ -163,3 +163,8 @@ El `0` se convertia en `90` con R90. Voy a ver otras soluciones para prender man
 With Ruben,
 
 [64 bit - bitwise AND in Javascript with a 64 bit integer - Stack Overflow](https://stackoverflow.com/questions/2983206/bitwise-and-in-javascript-with-a-64-bit-integer)
+
+
+With Ramon,
+
+[numbers - How do you set, clear and toggle a single bit in JavaScript? - Stack Overflow](https://stackoverflow.com/questions/1436438/how-do-you-set-clear-and-toggle-a-single-bit-in-javascript)
