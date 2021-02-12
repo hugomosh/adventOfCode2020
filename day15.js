@@ -25,11 +25,13 @@ function day15(input) {
 
 function game(initialNumbers, iteration) {
   const lastIndex = {};
-  initialNumbers.forEach((n, i) => (lastIndex[n] = [i]));
-  const nums = [...initialNumbers];
+  initialNumbers.forEach((n, i) => (lastIndex[n] = i));
+  //const nums = [...initialNumbers];
+  let last = initialNumbers[initialNumbers.length - 1],
+    prevLast = last;
   for (let i = initialNumbers.length; i <= iteration; i++) {
-    const prev = nums[i - 1];
-    const numHistory = lastIndex[prev] || (lastIndex[prev] = [] && []);
+    const prev = last;
+    const numHistory = lastIndex[prev];
     const nL = numHistory.length;
     //console.log(i, nums[i - 1], nL);
     let r;
@@ -38,14 +40,17 @@ function game(initialNumbers, iteration) {
     } else {
       r = lastIndex[prev][nL - 1] - lastIndex[prev][nL - 2];
     }
-    nums.push(r);
-    if (!lastIndex[r]) {
-      lastIndex[r] = [];
+    prevLast = last;
+    last = r;
+    //nums.push(r);
+    if (!lastIndex[r] || lastIndex[r].length < 1) {
+      lastIndex[r] = [i];
+    } else {
+      lastIndex[r] = [lastIndex[r][lastIndex[r].length - 1], i];
     }
-    lastIndex[r].push(i);
   }
   //console.log(nums);
-  return nums[nums.length - 2];
+  return prevLast;
 }
 let sol;
 /*Execute solution*/
@@ -55,6 +60,7 @@ console.log({ sol });
 
 const test = `cxxx`;
 let tests = [
+  //[[0, 3, 6], 30000000, 175594],
   [[0, 3, 6], 10, 0],
 
   [[0, 3, 6], 2020, 436],
@@ -65,7 +71,7 @@ let tests = [
   [[3, 2, 1], 2020, 438],
   [[3, 1, 2], 2020, 1836],
 ];
-//tests = tests.slice(0, 1);
+tests = tests.slice(0, 1);
 function testDemoP1() {
   for (const [arr, iteration, expected] of tests) {
     const actual = game(arr, iteration);
@@ -85,6 +91,6 @@ function testDemoP2() {
   );
 }
 
-console.log(game([11, 18, 0, 20, 1, 7, 16], 30000000));
+//console.log(game([11, 18, 0, 20, 1, 7, 16], 30000000));
 testDemoP1();
 //testDemoP2();
