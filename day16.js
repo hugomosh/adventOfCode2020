@@ -18,6 +18,8 @@ class Tickets {
   restrictions = [];
   yourTicket;
   nearbyTickets = [];
+  validNearbyTickets = [];
+  restrictionOptions = {};
 }
 
 function getTickets(input) {
@@ -44,12 +46,12 @@ function getTickets(input) {
       case 2:
         //console.log(i0);
         t.yourTicket = new Ticket(i0.split(",").map(Number));
+        break;
       //console.log(t.yourTicket);
       case 4:
-        //console.log(i0);
+        // console.log(i0);
         const a = t.nearbyTickets.push(new Ticket(i0.split(",").map(Number)));
         //console.log(a);
-
         break;
       default:
         break;
@@ -62,6 +64,12 @@ function isInRange(n, r) {
 
   return n <= r[1] && n >= r[0];
 }
+
+function allowsRestriction(n, r) {
+  const [r1, r2] = r;
+  return isInRange(n, r1) || isInRange(n, r2);
+}
+
 function getInvalidNumbers(n, r) {
   let res = [];
   for (let i = 0; i < n.length; i++) {
@@ -72,11 +80,84 @@ function getInvalidNumbers(n, r) {
       valid = valid || isInRange(e, r1) || isInRange(e, r2);
     }
     if (!valid) {
-      console.log(e);
+      //console.log(e);
       res.push(e);
     }
   }
   return res;
+}
+
+function day16P2(input) {
+  let validPassCount = 0;
+  let possibleRestrictions = [];
+  state = 0;
+  const t = getTickets(input);
+
+  //Filter valid tickets only
+  for (let i = 0; i < t.nearbyTickets.length; i++) {
+    const e = t.nearbyTickets[i];
+    const hasInvalid = getInvalidNumbers(e.nums, t.restrictions).length > 0;
+    //console.log(e, hasInvalid);
+    if (!hasInvalid) {
+      t.validNearbyTickets.push(e);
+    }
+  }
+  console.log(t.validNearbyTickets.length, t.nearbyTickets.length);
+  //Para cada restriccion
+  for (let j = 0; j < t.restrictions.length; j++) {
+    const r = t.restrictions[j];
+    console.log(r);
+    possibleRestrictions.push({ rIndex: j, options: new Set() });
+    //Prueba para cada indice
+    for (let k = 0; k < t.validNearbyTickets[0].nums.length; k++) {
+      let allValid = true;
+      //Si todos cada numero cumple la restriccion o para y descarta
+      for (let l = 0; l < t.validNearbyTickets.length; l++) {
+        const e = t.validNearbyTickets[l].nums[k];
+        //console.log(j, k, l);
+        if (!allowsRestriction(e, r)) {
+          allValid = false;
+          break;
+        }
+      }
+      if (allValid) {
+        possibleRestrictions[j].options.add(k);
+      }
+    }
+  }
+  possibleRestrictions = possibleRestrictions.sort(
+    (a, b) => a.options.size - b.options.size
+  );
+
+  let assigned = new Set();
+  for (let i = 0; i < possibleRestrictions.length; i++) {
+    const p = possibleRestrictions[i];
+    assigned.forEach((a) => p.options.delete(a));
+    if (p.options.size === 1) {
+      p.real = p.options.values().next().value;
+      assigned.add(p.real);
+      console.log(p.real);
+    }
+  }
+
+  possibleRestrictions.forEach(
+    (x) => (t.restrictions[x.rIndex].index = x.real)
+  );
+  console.log(t.restrictions);
+
+  let d = 0;
+  validPassCount = 1;
+  while (t.restrictions[d][2].includes("departure ")) {
+    console.log(
+      t.restrictions[d],
+      t.restrictions[d].index,
+      t.yourTicket.nums[t.restrictions[d].index]
+    );
+    validPassCount = validPassCount * t.yourTicket.nums[t.restrictions[d].index];
+    d++;
+  }
+
+  return validPassCount;
 }
 
 function day16P1(input) {
@@ -88,21 +169,18 @@ function day16P1(input) {
   for (let i = 0; i < t.nearbyTickets.length; i++) {
     const e = t.nearbyTickets[i];
     //console.log(e);
-    validPassCount += getInvalidNumbers(e.nums, t.restrictions).reduce((a, b) => a + b,0);
-
+    validPassCount += getInvalidNumbers(e.nums, t.restrictions).reduce(
+      (a, b) => a + b,
+      0
+    );
   }
 
   return validPassCount;
 }
 
-function day16P2(input) {
-  let x = 0;
-  return x;
-}
-
 function day16(input) {
   return {
-    p1: day16P1(input),
+    // p1: day16P1(input),
     p2: day16P2(input),
   };
 }
