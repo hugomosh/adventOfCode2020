@@ -164,7 +164,12 @@ With Ruben,
 
 [64 bit - bitwise AND in Javascript with a 64 bit integer - Stack Overflow](https://stackoverflow.com/questions/2983206/bitwise-and-in-javascript-with-a-64-bit-integer)
 
-
 With Ramon,
 
 [numbers - How do you set, clear and toggle a single bit in JavaScript? - Stack Overflow](https://stackoverflow.com/questions/1436438/how-do-you-set-clear-and-toggle-a-single-bit-in-javascript)
+
+## Day 16
+
+Este lo empece con Ramon y fue una agradable sorpresa que el Alancín también le entrara a AoC.
+
+Por fin lo termine. Creo que tengo que trabajar en la limpieza de mis soluciones. Valió la pena invertirle a las clases para el problema 16. Seguro ayudara en otros asi que quizá me ire por esa ruta. Sobre todo que js ha exigido que se programe "bien" para que ciertos problemas terminen. Entonces una clase ayudaría con la re-implementación de un método y su testeo.
