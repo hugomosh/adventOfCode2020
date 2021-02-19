@@ -61,20 +61,86 @@ function solveEquation(input = []) {
   console.assert(Number(c), leftV);
   return c;
 }
+function isOperator(o, oRank) {
+  return oRank[o] != null;
+}
+
+function getInfixToPostFix(infix, operatorsRank) {
+  const postfixOutput = [],
+    operators = [];
+  let infixCopy = [...infix];
+  let c;
+  while (infixCopy.length) {
+    c = infixCopy.shift();
+    if (c === "(") {
+      infixCopy.unshift(c);
+      const [subQ, newQ] = extractBigParenthesis(infixCopy);
+      infixCopy = newQ;
+      c = solveEquationInfixPostFix(subQ, operatorsRank);
+    }
+    if (!isNaN(c)) {
+      postfixOutput.push(Number(c));
+    }
+    if (isOperator(c, operatorsRank)) {
+      const lastOperator = operators.pop();
+      if (!lastOperator) {
+        operators.push(c);
+        continue;
+      }
+      if (operatorsRank[c] > operatorsRank[lastOperator]) {
+        operators.push(lastOperator, c);
+      } else {
+        operators.push(c);
+        postfixOutput.push(lastOperator);
+      }
+      continue;
+    }
+  }
+  postfixOutput.push(...operators.reverse());
+ // console.log(postfixOutput);
+  return postfixOutput;
+}
+
+const operations = { "+": (a, b) => a + b, "*": (a, b) => a * b };
+function solvePostfix(postfix) {
+  const copy = [...postfix];
+  let n = [];
+  let i = 0;
+  while (copy.length) {
+    const c = copy.shift();
+    if (typeof c === "number") {
+      n.push(c);
+    } else {
+      n.push(operations[c](n.pop(), n.pop()));
+    }
+  }
+  console.assert(n.length);
+  return n.pop();
+}
+function solveEquationInfixPostFix(infix, operatorsRank) {
+  const postfixOutput = getInfixToPostFix(infix, operatorsRank);
+  const sol = solvePostfix(postfixOutput);
+  return sol;
+}
 
 function day18P1(input) {
   const regex = new RegExp("([0-9]+)|([+()*]{1})", "g");
   const res = input.map((line) => {
     const inputParts = line.match(regex);
-    return solveEquation(inputParts);
+    //return solveEquation(inputParts);
+    return solveEquationInfixPostFix(inputParts, { "+": 0, "*": 0 });
   });
-
   return res.reduce((a, b) => a + b, 0);
 }
 
 function day18P2(input) {
-  let x = 0;
-  return x;
+  const regex = new RegExp("([0-9]+)|([+()*]{1})", "g");
+  const res = input.map((line) => {
+    const inputParts = line.match(regex);
+    // addition is evaluated before multiplication.
+    return solveEquationInfixPostFix(inputParts, { "+": 1, "*": 0 });
+  });
+  return res.reduce((a, b) => a + b, 0);
 }
 
 function day18(input) {
@@ -120,7 +186,8 @@ function testDemoP1() {
 }
 
 function testDemoP2() {
-  for (let i = 0; i < testCases.length; i++) {
+  const l = testCases.length;
+  for (let i = 0; i < l; i++) {
     const [aInput, , expected] = testCases[i];
     const actual = day18P2(utils.splitLines(aInput));
     console.assert(
